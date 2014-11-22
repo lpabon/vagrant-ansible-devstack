@@ -15,7 +15,7 @@
 
     - name: checkout devstack
       sudo: no
-      git: repo={{devstack_repo}} dest=/home/vagrant/devstack version={{devstack_branch}}
+      git: repo={{devstack_repo}} dest=/home/vagrant/devstack version={{devstack_branch}} accept_hostkey=yes
 
     - name: copy localrc
       sudo: no
