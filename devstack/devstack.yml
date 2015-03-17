@@ -11,20 +11,15 @@
     devstack_branch: "{{branch}}"
   tasks:
     - name: git
+      sudo: yes
       apt: pkg=git state=present
 
+    - name: update system
+      sudo: yes
+      apt: update_cache=yes upgrade=dist
+
     - name: checkout devstack
-      sudo: no
       git: repo={{devstack_repo}} dest=/home/vagrant/devstack version={{devstack_branch}} accept_hostkey=yes
 
     - name: copy localrc
-      sudo: no
       template: src=localrc.basic dest=/home/vagrant/devstack/localrc
-
-    - name: do what you like
-      sudo: yes
-      script: dowhatyoulike.sh
-
-    - name: stack.sh
-      sudo: no
-      shell: /home/vagrant/devstack/stack.sh 2>&1 > /tmp/stack.sh.log

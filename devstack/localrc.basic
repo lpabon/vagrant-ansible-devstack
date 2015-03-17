@@ -15,28 +15,14 @@ OFFLINE={{offline}}
 # url for various openstack project, see devstack/stackrc for details.
 GIT_BASE={{git_base}}
 
-
-## git branch settings
-CEILOMETER_BRANCH={{branch}}
-CINDER_BRANCH={{branch}}
-GLANCE_BRANCH={{branch}}
-HEAT_BRANCH={{branch}}
-HORIZON_BRANCH={{branch}}
-KEYSTONE_BRANCH={{branch}}
-NOVA_BRANCH={{branch}}
-QUANTUM_BRANCH={{branch}}
-SWIFT_BRANCH={{branch}}
-
-
 ## stack.sh logging
 LOGFILE=stack.sh.log
+
 # LOGDAYS=1
 LOG_COLOR=False
 
-
 ## Screen logging
 SCREEN_LOGDIR=$DEST/logs/screen
-
 
 ## A clean install every time.
 RECLONE={{reclone}}
@@ -69,12 +55,12 @@ disable_service h-api-cw
 
 disable_service n-net
 
-enable_service neutron
 enable_service q-svc
 enable_service q-agt
 enable_service q-dhcp
 enable_service q-l3
 enable_service q-meta
+enable_service neutron
  
 enable_plugin manila https://github.com/openstack/manila
 
