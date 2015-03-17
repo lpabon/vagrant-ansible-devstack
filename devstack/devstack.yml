@@ -23,3 +23,6 @@
 
     - name: copy localrc
       template: src=localrc.basic dest=/home/vagrant/devstack/localrc
+
+    - name: stack.sh
+      shell: /home/vagrant/devstack/stack.sh 2>&1 > /tmp/stack.sh.log

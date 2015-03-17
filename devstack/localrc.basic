@@ -36,12 +36,6 @@ ADMIN_PASSWORD=devstack
 SERVICE_TOKEN=devstack
 SWIFT_HASH=devstack
 
-FLAT_INTERFACE=eth1
-PUBLIC_INTERFACE=eth1
-HOST_IP=$(ifconfig | grep $PUBLIC_INTERFACE -A 5 | grep 'inet addr' | awk '{print $2}' | awk -F: '{print $2}')
-FLOATING_RANGE=192.168.27.128/28
-
-
 ## image url
 IMAGE_URL={{image_url}}
 
@@ -61,7 +55,7 @@ enable_service q-dhcp
 enable_service q-l3
 enable_service q-meta
 enable_service neutron
- 
+
 enable_plugin manila https://github.com/openstack/manila
 
 Q_PLUGIN=ml2
